@@ -38,7 +38,6 @@ def init_db():
     """)
     conn.commit()
     conn.close()
-    init_db()
 def classify(email):
     e = email.lower()
     if any(x in e for x in ["bounce", "noreply", "no-reply"]):
