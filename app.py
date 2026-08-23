@@ -49,6 +49,7 @@ def classify(email):
 
 @app.route("/")
 def index():
+    init_db()
     conn = db()
     stats = {
         "emails": conn.execute("SELECT COUNT(*) FROM emails").fetchone()[0],
