@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}Campaigns{% endblock %}
+{% block content %}
+<section class="panel">
+<h2>Create Campaign</h2>
+<form method="post">
+<label>Campaign Name<input name="name" placeholder="Summer Outreach" required></label>
+<label>Subject<input name="subject" placeholder="Hello from our team" required></label>
+<label>Audience<select name="audience"><option>All</option><option>Business</option><option>Personal</option></select></label>
+<label>Email Content<textarea name="content" rows="7" placeholder="Write your email..."></textarea></label>
+<button>Create Campaign</button>
+</form>
+</section>
+<section class="panel"><h2>Campaign History</h2>
+<table><tr><th>Name</th><th>Subject</th><th>Audience</th><th>Sent</th><th>Failed</th></tr>
+{% for c in campaigns %}<tr><td>{{c.name}}</td><td>{{c.subject}}</td><td>{{c.audience}}</td><td>{{c.sent}}</td><td>{{c.failed}}</td></tr>
+{% else %}<tr><td colspan="5">No campaigns yet.</td></tr>{% endfor %}
+</table></section>
+{% endblock %}

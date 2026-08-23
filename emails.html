@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block title %}Email Database{% endblock %}
+{% block content %}
+<section class="panel">
+<h2>Import Email List</h2>
+<p>CSV must contain an <b>email</b> column. Optional: <b>name</b>.</p>
+<form method="post" enctype="multipart/form-data" class="inline">
+<input type="file" name="file" accept=".csv" required><button>Import CSV</button>
+</form>
+</section>
+<section class="panel"><h2>Contacts</h2>
+<table><tr><th>Name</th><th>Email</th><th>Category</th><th>Status</th></tr>
+{% for e in emails %}<tr><td>{{e.name}}</td><td>{{e.email}}</td><td><span class="pill">{{e.category}}</span></td><td>{{e.status}}</td></tr>
+{% else %}<tr><td colspan="4">Import sample_emails.csv to begin.</td></tr>{% endfor %}
+</table></section>
+{% endblock %}

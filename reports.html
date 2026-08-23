@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Campaign Reports{% endblock %}
+{% block content %}
+<div class="cards">
+<div class="card"><small>Total Sent</small><b>{{total_sent}}</b></div>
+<div class="card"><small>Total Failed</small><b>{{total_failed}}</b></div>
+</div>
+<section class="panel"><h2>Performance</h2>
+<table><tr><th>Campaign</th><th>Subject</th><th>Sent</th><th>Failed</th><th>Created</th></tr>
+{% for c in campaigns %}<tr><td>{{c.name}}</td><td>{{c.subject}}</td><td>{{c.sent}}</td><td>{{c.failed}}</td><td>{{c.created_at}}</td></tr>{% endfor %}
+</table></section>
+{% endblock %}

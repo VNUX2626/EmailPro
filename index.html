@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="cards">
+<div class="card"><small>Total Emails</small><b>{{stats.emails}}</b></div>
+<div class="card"><small>Business</small><b>{{stats.business}}</b></div>
+<div class="card"><small>Personal</small><b>{{stats.personal}}</b></div>
+<div class="card"><small>Campaigns</small><b>{{stats.campaigns}}</b></div>
+</div>
+<section class="panel">
+<h2>Recent Campaigns</h2>
+<table><tr><th>Name</th><th>Subject</th><th>Sent</th><th>Failed</th><th>Date</th></tr>
+{% for c in campaigns %}<tr><td>{{c.name}}</td><td>{{c.subject}}</td><td>{{c.sent}}</td><td>{{c.failed}}</td><td>{{c.created_at}}</td></tr>{% else %}<tr><td colspan="5">No campaigns yet.</td></tr>{% endfor %}
+</table>
+</section>
+{% endblock %}
